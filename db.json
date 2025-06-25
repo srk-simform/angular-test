@@ -43,6 +43,12 @@
       "title": "The Catcher in the Rye",
       "author": "J.D. Salinger",
       "available": false
+    },
+    {
+      "title": "New Book Title",
+      "author": "Author Name",
+      "available": true,
+      "id": 6
     }
   ]
 }

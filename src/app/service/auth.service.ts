@@ -1,24 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
-
-export interface user {
-  id: number;
-  username: string;
-  role: string;
-  token: string;
-}
-
-export enum ROLES {
-  USER = "user",
-  LIBR = "librarian"
-}
+import { user } from '../interfaces/user.interface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   currentUser = new BehaviorSubject<user | null>(null);
+  private apiURL = 'http://localhost:3000';
 
   constructor(private Http: HttpClient) {
     const user = localStorage.getItem('currentUser');
@@ -27,7 +17,6 @@ export class AuthService {
     }
   }
 
-  private apiURL = 'http://localhost:3000';
 
   loginAsLibrarian(): Observable<user> {
     return this.Http.post<user>(`${this.apiURL}/api/login-librarian`, {}).pipe(

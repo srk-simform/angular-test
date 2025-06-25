@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
-import { AuthService, ROLES } from '../../service/auth.service';
+import { AuthService } from '../../service/auth.service';
+import { ROLES } from '../../constants/constant';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
